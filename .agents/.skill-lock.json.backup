@@ -132,7 +132,21 @@
       "source": "local",
       "contentHash": "47c4d62eebf29a61477c1b611c6ae360b028e1e23e09df1f6a33b5ff32b020f7",
       "installedAt": "2026-06-12T11:06:26.159Z",
-      "updatedAt": "2026-06-12T11:06:26.165Z",
+      "updatedAt": "2026-06-12T11:06:26.170Z",
+      "agents": [
+        "cursor",
+        "claude-code",
+        "windsurf"
+      ],
+      "method": "copy",
+      "global": false
+    },
+    "excalidraw-studio": {
+      "name": "excalidraw-studio",
+      "source": "local",
+      "contentHash": "08f4964859a421cccfc52314f2e5b3484b1163ecf558ccdbb6746127229b9399",
+      "installedAt": "2026-06-12T11:17:51.148Z",
+      "updatedAt": "2026-06-12T11:17:51.162Z",
       "agents": [
         "cursor",
         "claude-code"

@@ -7,3 +7,12 @@ I'll build an e-commerce system. Pretty boring, but serves as object to apply th
 ----
 
 Any external service is expected to be provided in my personal cluster.
+
+----
+
+# Topics in focus
+
+1. DDD Event Storming
+2. Strategic DDD
+3. Tactical DDD
+4. CQRS Event Sourcing
