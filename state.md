@@ -55,5 +55,6 @@ Translate DDIA chapter 3 ideas (read models, storage/query trade-offs) into the 
 ## Related docs
 
 - [INDEX.md](INDEX.md) — repository map
+- [obsidian-vault/](obsidian-vault/) — Obsidian meeting logs and study notes
 - [event-storming/](event-storming/) — full domain workshop
 - [docs/book-club/next-session.md](docs/book-club/next-session.md) — next book club discussion prep

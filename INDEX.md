@@ -12,6 +12,7 @@ External services are expected to run in the author's personal cluster.
 | [readme.MD](readme.MD) | Original repo intent and topics in focus |
 | [docs/](docs/) | Deeper write-ups and ADRs (as they accumulate) |
 | [docs/book-club/next-session.md](docs/book-club/next-session.md) | Proposed topics for the next book club meeting |
+| [obsidian-vault/](obsidian-vault/) | Obsidian notes — meeting logs and study/reading capture |
 
 ## Repository map
 
@@ -19,6 +20,7 @@ External services are expected to run in the author's personal cluster.
 ddia-research/
 ├── INDEX.md              ← you are here
 ├── state.md              ← keep updated
+├── obsidian-vault/       ← Obsidian notes (meetings, study)
 ├── event-storming/       ← domain discovery (Event Storming workshop)
 └── ecommerce/            ← Nx + NestJS implementation lab
 ```
