@@ -1,0 +1,36 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2022",
+    "module": "esnext",
+    "lib": ["es2022"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "strict": true,
+    "noImplicitReturns": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "paths": {
+      "@ecommerce/shared/domain": ["libs/shared/domain/src/index.ts"],
+      "@ecommerce/shared/contracts": ["libs/shared/contracts/src/index.ts"],
+      "@ecommerce/shared/infrastructure": ["libs/shared/infrastructure/src/index.ts"],
+      "@ecommerce/shopping": ["libs/shopping/src/index.ts"],
+      "@ecommerce/ordering": ["libs/ordering/src/index.ts"],
+      "@ecommerce/fulfillment": ["libs/fulfillment/src/index.ts"],
+      "@ecommerce/returns": ["libs/returns/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp", "dist"]
+}

@@ -1,0 +1,5 @@
+{
+  "name": "@ecommerce/fulfillment",
+  "version": "0.0.0",
+  "main": "src/index.ts"
+}
