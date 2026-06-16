@@ -2,8 +2,8 @@
 
 > **Domain:** B2C E-Commerce  
 > **Scope:** Browsing → Cart → Checkout → Fulfillment → Returns  
-> **Status:** Phase 1 ✅, Phase 2 ✅, Phase 3 ✅  
-> **Last updated:** Phase 3 completed
+> **Status:** Phase 1 ✅, Phase 2 ✅, Phase 3 ✅, Phase 4 ✅  
+> **Last updated:** Workshop complete
 
 ---
 
@@ -31,6 +31,12 @@
 - Invariants, lifecycle states, and guarded commands defined for each aggregate
 - Excalidraw aggregate diagram generated
 
+### Phase 4 — Bounded Contexts ✅
+- 6 aggregates grouped into 4 bounded contexts: Shopping, Ordering, Fulfillment, Returns
+- Context relationships defined as Customer/Supplier with Published Language
+- Subdomain classification: Core (Ordering), Supporting (Shopping, Returns), Generic (Fulfillment)
+- Excalidraw bounded context map generated
+
 **Actors discovered:**
 - Human: `Customer`, `WarehouseWorker`, `ShippingCarrier`
 - Policy: `CartAbandonmentPolicy`, `PaymentAuthorizationPolicy`, `PaymentCapturePolicy`, `OrderConfirmationPolicy`, `FulfillmentTriggerPolicy`, `InventoryReservationPolicy`, `ReturnEvaluationPolicy`, `RefundIssuancePolicy`
@@ -38,6 +44,7 @@
 **Concepts documented:**
 - `event-storming/concept-policy.md` — What a policy is (and isn't)
 - `event-storming/concept-intent-vs-state.md` — Why redundant-seeming events have value
+- `event-storming/concept-context-relationships.md` — DDD context relationship patterns (Partnership, Shared Kernel, Customer/Supplier, Conformist, ACL, Separate Ways)
 
 ---
 
@@ -59,6 +66,21 @@
 - `OrderConfirmed` → `RequestFulfillment` → `ReserveInventory`
 - `OrderShipped` → `CapturePayment`
 - `OrderDelivered` enables `RequestReturn` → `IssueRefund` → refund via Payment
+
+---
+
+## Phase 4 Results: 4 Bounded Contexts
+
+| Context | Aggregates | Subdomain | Relationships |
+|---------|-----------|-----------|---------------|
+| **Shopping** | Cart + 3 advisory events | Supporting | → Ordering (Customer/Supplier) |
+| **Ordering** | Order, Payment | ★ Core | → Fulfillment, ↔ Returns |
+| **Fulfillment** | Shipment, InventoryItem | Generic | |
+| **Returns** | Return | Supporting | ↔ Ordering |
+
+All context relationships use **Customer/Supplier with Published Language** via domain events.
+
+**External systems shared across contexts:** PaymentGateway (Ordering, Returns), ShippingCarrier (Fulfillment)
 
 ---
 
@@ -110,12 +132,14 @@
 
 ---
 
-## Current Phase: Phase 4 — Bounded Contexts (not started)
+## Current Phase: Workshop Complete 🎉
+
+The Event Storming workshop is finished. All 4 phases are documented.
 
 Next steps:
-1. Group the 6 aggregates into bounded contexts based on ubiquitous language and cohesion
-2. Define context relationships (Customer/Supplier, ACL, etc.)
-3. Generate `04-bounded-contexts.md` and `diagrams/bounded-context-map.excalidraw`
+1. Strategic DDD — Refine subdomain classification, identify Core Domains for investment
+2. Tactical DDD — Model each aggregate in detail (entities, value objects, domain services)
+3. CQRS/ES Architectures — Design event stores, projections, and command handlers per bounded context
 
 ---
 
@@ -127,26 +151,28 @@ event-storming/
 ├── 01-domain-events.md                     # All 26 events + inventory table ✅
 ├── 02-process-modeling.md                  # Commands, actors, read models, policies, external systems ✅
 ├── 03-aggregates.md                        # 6 aggregates with invariants, lifecycle, guarded commands ✅
-├── 04-bounded-contexts.md                  # NOT YET CREATED
+├── 04-bounded-contexts.md                  # 4 contexts with relationship map, subdomain types ✅
 ├── concept-policy.md                       # What a policy is (and isn't)
 ├── concept-intent-vs-state.md              # Why segregated events have value
+├── concept-context-relationships.md        # DDD context relationship patterns (6 patterns)
 └── diagrams/
     ├── big-picture-events.excalidraw       # Phase 1 visual ✅
     ├── process-modeling.excalidraw         # Phase 2 visual ✅
     ├── design-level-aggregates.excalidraw  # Phase 3 visual ✅
-    └── bounded-context-map.excalidraw      # NOT YET CREATED
+    └── bounded-context-map.excalidraw      # Phase 4 visual ✅
 ```
 
 ---
 
 ## How to Resume
 
-### Next steps (in order):
-1. **Phase 4** — Group aggregates into bounded contexts
-2. **Generate Phase 4 Excalidraw** — Bounded context map
+The Event Storming workshop is complete. To continue the DDD journey:
 
-### Prompt to resume Phase 4:
-> "Let's continue Event Storming Phase 4 — Bounded Contexts. We have 6 aggregates from Phase 3 in `event-storming/03-aggregates.md`. Let's group them into bounded contexts and define context relationships."
+### Prompt to start Strategic DDD:
+> "Let's start Strategic DDD. We have 4 bounded contexts from the Event Storming workshop in `event-storming/04-bounded-contexts.md`. Let's refine subdomain classification and identify which are truly Core, Supporting, and Generic."
+
+### Prompt to start Tactical DDD:
+> "Let's do Tactical DDD on the [aggregate name] aggregate. We have the invariants and lifecycle from `event-storming/03-aggregates.md`. Let's model the entities, value objects, and domain services."
 
 ## CRITICAL: Facilitation Rules
 
